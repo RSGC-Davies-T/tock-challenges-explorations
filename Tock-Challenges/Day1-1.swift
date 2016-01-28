@@ -1,24 +1,38 @@
+//
+//  Day1-1.swift
+//  Tock-Challenges
+//
+//  Created by Tommy Davies on 2016-01-28.
+//  Copyright © 2016 Royal St. George's College. All rights reserved.
+//
+
+import Foundation
+
 //: Playground - noun: a place where people can play
 
-import Cocoa
-var endLoop : Bool
 var userInput : String = readLine()!
 var dateCheck : [Int] = []
-print("\nEnter the month: ", terminator: "")
+var endLoop : Bool
 
 repeat {
     //if this turns true the next sequence will inititate
     endLoop = false
     switch userInput {
-        
     default:
+        print("\nEnter the month: ", terminator: "")
         // attempt to convert the input to an integer
         if let month = Int(userInput) {
             //adds the input to the array, but only integer inputs are accepted
             dateCheck.append(month)
             //prompts for another number
-            print("\nEnter the day: ", terminator: "")
             userInput = readLine()!
+            print("\nEnter the day: ", terminator: "")
+            if let day = Int(userInput) {
+                //adds the input to the array, but only integer inputs are accepted
+                dateCheck.append(day)
+                endLoop = true
+                userInput = readLine()!
+            }
         } else {
             //invalid input safety net
             print("\nInvalid Input ", terminator: "")
